@@ -464,30 +464,23 @@ section {
 
 .hero__layer--main {
   z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.hero__blob {
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
-  background: linear-gradient(150deg, var(--c-nude) 0%, var(--c-terracotta) 55%, #a3654a 100%);
-  box-shadow: inset 0 0 60px rgba(53, 60, 53, 0.15);
-  animation: blob-morph 14s var(--ease-soft) infinite alternate;
+.hero__layer--main picture,
+.hero__layer--main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@keyframes blob-morph {
-  0% {
-    border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
-  }
-  50% {
-    border-radius: 58% 42% 40% 60% / 55% 62% 38% 45%;
-  }
-  100% {
-    border-radius: 48% 52% 55% 45% / 40% 55% 45% 60%;
-  }
+.hero__layer--main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(184, 120, 92, 0.16) 0%, rgba(53, 60, 53, 0.04) 45%, rgba(53, 60, 53, 0.28) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .hero__layer--fg {
@@ -710,22 +703,32 @@ section {
   box-shadow: var(--shadow-card);
 }
 
+.leistung-visual picture,
+.leistung-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .leistung-visual::before {
   content: "";
   position: absolute;
   inset: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .leistung-visual--kosmetik::before {
-  background: radial-gradient(120% 120% at 15% 10%, #f1e6d8 0%, var(--c-nude) 60%, var(--c-terracotta) 130%);
+  background: linear-gradient(160deg, rgba(184, 120, 92, 0.22) 0%, rgba(184, 120, 92, 0) 55%);
 }
 
 .leistung-visual--ayurveda::before {
-  background: radial-gradient(120% 120% at 85% 15%, #e7ebe3 0%, var(--c-sage) 65%, var(--c-olive) 140%);
+  background: linear-gradient(160deg, rgba(124, 137, 119, 0.28) 0%, rgba(53, 60, 53, 0) 55%);
 }
 
 .leistung-visual--haende::before {
-  background: radial-gradient(120% 120% at 20% 85%, #f4ede0 0%, var(--c-brass) 70%, #8a723f 150%);
+  background: linear-gradient(160deg, rgba(181, 154, 104, 0.26) 0%, rgba(181, 154, 104, 0) 55%);
 }
 
 .leistung-visual__ring {
@@ -1323,10 +1326,6 @@ section {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
-  }
-
-  .hero__blob {
-    animation: none;
   }
 
   .hero__scroll-cue span::after {

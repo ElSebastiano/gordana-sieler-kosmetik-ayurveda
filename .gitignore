@@ -5,3 +5,6 @@ ReferenceAssets/
 project-manifest.json
 _claude-launch.json
 .claude/
+
+# Full-resolution source images (large; optimized web versions live in assets/img/)
+assets/img/original/
